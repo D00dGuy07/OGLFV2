@@ -9,7 +9,7 @@ extern "C" {
 
 #include "Application.h"
 
-int main(void)
+int oglTestMain(void)
 {
 	// Load OpenGL/GLFW
 	GLFWwindow* window = LoadGLFW(1280, 720);

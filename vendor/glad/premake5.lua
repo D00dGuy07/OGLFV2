@@ -1,6 +1,7 @@
 project "glad"
     language "C++"
     cppdialect "C++17"
+    
     kind "StaticLib"
     staticruntime "on"
     systemversion "latest"
@@ -12,6 +13,11 @@ project "glad"
     {
         "include/glad/glad.h",
         "src/glad.c"
+    }
+
+    includedirs
+    {
+        "include"
     }
 
     filter "configurations:Debug"

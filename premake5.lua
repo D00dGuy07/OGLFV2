@@ -1,9 +1,10 @@
 include "vendor"
 
-project "glad"
+project "oglfv2"
     language "C++"
     cppdialect "C++17"
     kind "StaticLib"
+    
     staticruntime "on"
     systemversion "latest"
 
@@ -14,6 +15,27 @@ project "glad"
     {
         "src/**.h",
 		"src/**.cpp"
+    }
+
+    includedirs
+    {
+        "src",
+        "vendor/glad/include",
+        "vendor/glfw/include",
+        "vendor/glm",
+        "vendor/stb"
+    }
+
+    links
+    {
+        "glad",
+        "glfw"
+    }
+
+    defines
+    {
+        "GLFW_INCLUDE_NONE",
+        "GLDEBUG_OMIT_SEVERITY_NOTIFICATION"
     }
 
     filter "configurations:Debug"
