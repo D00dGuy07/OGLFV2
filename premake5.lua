@@ -1,4 +1,4 @@
-include "vendor"
+include "vendor/glad"
 
 project "oglfv2"
     language "C++"
@@ -20,16 +20,15 @@ project "oglfv2"
     includedirs
     {
         "src",
-        "vendor/glad/include",
-        "vendor/glfw/include",
-        "vendor/glm",
-        "vendor/stb"
+        path.join(PACKAGE_DIRS["glad"], "include"),
+        path.join(PACKAGE_DIRS["glfw"], "include"),
+        PACKAGE_DIRS["glm"],
+        PACKAGE_DIRS["stb"]
     }
 
     links
     {
-        "glad",
-        "glfw"
+        "glad"
     }
 
     defines
@@ -50,3 +49,5 @@ project "oglfv2"
         runtime "Release"
         optimize "Speed"
         symbols "off"
+
+PACKAGE_DIRS["oglfv2"] = path.getabsolute(".")

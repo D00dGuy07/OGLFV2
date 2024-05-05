@@ -7,7 +7,7 @@ project "glad"
     systemversion "latest"
 
     targetdir (TARGET_DIR)
-	  objdir (OBJ_DIR)
+	objdir (OBJ_DIR)
 
     files
     {
@@ -32,3 +32,5 @@ project "glad"
         runtime "Release"
         optimize "Speed"
         symbols "off"
+
+PACKAGE_DIRS["glad"] = path.getabsolute(".")
