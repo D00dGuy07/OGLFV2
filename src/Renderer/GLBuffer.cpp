@@ -1,4 +1,4 @@
-#include "Renderer/GLBuffer.h"
+#include "oglfv2/Renderer/GLBuffer.h"
 
 // None of these are in a renderer submit because data needs to be copied to the gpu asap
 GLBuffer::GLBuffer()

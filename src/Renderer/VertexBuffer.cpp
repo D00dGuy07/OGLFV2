@@ -1,6 +1,7 @@
-#include "VertexBuffer.h"
+#include "oglfv2/Renderer/VertexBuffer.h"
 
-#include "Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
+
 #include <iostream>
 
 VertexBuffer* VertexBuffer::m_BoundVertexBuffer = nullptr;

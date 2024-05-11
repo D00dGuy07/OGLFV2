@@ -1,7 +1,7 @@
-#include "UI/Widgets/NineSliceFrame.h"
+#include "oglfv2/UI/Widgets/NineSliceFrame.h"
 
-#include "Renderer/Renderer.h"
-#include "Renderer/UniformBuffer.h"
+#include "oglfv2/Renderer/Renderer.h"
+#include "oglfv2/Renderer/UniformBuffer.h"
 
 #include <array>
 

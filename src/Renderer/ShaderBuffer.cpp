@@ -1,6 +1,6 @@
-#include "Renderer/ShaderBuffer.h"
+#include "oglfv2/Renderer/ShaderBuffer.h"
 
-#include "Renderer/Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 #include <iostream>
 

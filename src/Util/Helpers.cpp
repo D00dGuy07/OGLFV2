@@ -1,18 +1,6 @@
-#include "Util/Helpers.h"
+#include "oglfv2/Util/Helpers.h"
 
 #include <sys/stat.h>
-
-// Texture Atlas
-
-TextureCoords TextureAtlasCoords(float x, float y, float width, float height)
-{
-	return {
-		glm::vec2(((x * width))        , ((y * width) + width)),
-		glm::vec2(((x * width) + width), ((y * width) + width)),
-		glm::vec2(((x * width) + width), (y * width)),
-		glm::vec2(((x * width))        , (y * width))
-	};
-}
 
 // File helpers
 

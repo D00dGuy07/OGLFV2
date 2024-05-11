@@ -1,6 +1,6 @@
-#include "UI/Widgets/TextLabel.h"
+#include "oglfv2/UI/Widgets/TextLabel.h"
 
-#include "Util/Helpers.h"
+#include "oglfv2/Util/Helpers.h"
 
 #include <sstream>
 

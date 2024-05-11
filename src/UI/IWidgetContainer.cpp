@@ -1,6 +1,6 @@
-#include "UI/IWidgetContainer.h"
+#include "oglfv2/UI/IWidgetContainer.h"
 
-#include "UI/Widget.h"
+#include "oglfv2/UI/Widget.h"
 
 using namespace UI;
 

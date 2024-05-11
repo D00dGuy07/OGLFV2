@@ -1,13 +1,13 @@
-#include "UI/Surface.h"
+#include "oglfv2/UI/Surface.h"
 
-#include "Util/Sort.h"
+#include "oglfv2/Util/Sort.h"
 
-#include "Renderer/Renderer.h"
-#include "Renderer/Framebuffer.h"
-#include "Renderer/Shader.h"
-#include "Renderer/UniformBuffer.h"
+#include "oglfv2/Renderer/Renderer.h"
+#include "oglfv2/Renderer/Framebuffer.h"
+#include "oglfv2/Renderer/Shader.h"
+#include "oglfv2/Renderer/UniformBuffer.h"
 
-#include "UI/Widget.h"
+#include "oglfv2/UI/Widget.h"
 
 using namespace UI;
 

@@ -1,8 +1,8 @@
-#include "Renderer/Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
-#include "Renderer/VertexArray.h"
-#include "Renderer/IndexBuffer.h"
-#include "Renderer/Framebuffer.h"
+#include "oglfv2/Renderer/VertexArray.h"
+#include "oglfv2/Renderer/IndexBuffer.h"
+#include "oglfv2/Renderer/Framebuffer.h"
 
 RenderCommandQueue Renderer::m_CommandQueue = RenderCommandQueue();
 GarbageHeap Renderer::m_GarbageHeap = GarbageHeap(1024 * 512);

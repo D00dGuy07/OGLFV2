@@ -1,8 +1,8 @@
-#include "Renderer/Framebuffer.h"
+#include "oglfv2/Renderer/Framebuffer.h"
 
-#include "Renderer/Renderer.h"
-#include "Renderer/Texture.h"
-#include "Renderer/RenderBuffer.h"
+#include "oglfv2/Renderer/Renderer.h"
+#include "oglfv2/Renderer/Texture.h"
+#include "oglfv2/Renderer/RenderBuffer.h"
 
 #include "glad/glad.h"
 

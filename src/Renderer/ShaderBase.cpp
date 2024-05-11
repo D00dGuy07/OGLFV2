@@ -1,6 +1,6 @@
-#include "Renderer/ShaderBase.h"
+#include "oglfv2/Renderer/ShaderBase.h"
 
-#include "Renderer/Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 #include "glad/glad.h"
 

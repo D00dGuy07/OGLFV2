@@ -13,6 +13,7 @@ project "oglfv2"
 
     files
     {
+        "include/**.h",
         "src/**.h",
 		"src/**.cpp"
     }
@@ -20,6 +21,7 @@ project "oglfv2"
     includedirs
     {
         "src",
+        "include",
         path.join(PACKAGE_DIRS["glad"], "include"),
         path.join(PACKAGE_DIRS["glfw"], "include"),
         PACKAGE_DIRS["glm"],

@@ -1,6 +1,4 @@
-#include "Renderer/Uniform.h"
-
-#include "Renderer.h"
+#include "oglfv2/Renderer/Uniform.h"
 
 template Uniform1f;
 template Uniform2f;

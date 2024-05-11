@@ -1,6 +1,6 @@
-#include "Renderer/ComputeShader.h"
+#include "oglfv2/Renderer/ComputeShader.h"
 
-#include "Renderer/Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 #include <fstream>
 #include <sstream>

@@ -1,11 +1,10 @@
-#include "Texture.h"
+#include "oglfv2/Renderer/Texture.h"
+
+#include "oglfv2/Renderer/Renderer.h"
 
 #include "glad/glad.h"
-
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
-#include "Renderer/Renderer.h"
 
 #include <iostream>
 
@@ -163,4 +162,16 @@ void Texture::FreeBinding(Texture* texture)
 	for (uint32_t i = 0; i < m_MaxImageUnits; i++)
 		if (m_BoundImageUnits[i] == texture)
 			m_BoundImageUnits[i] = nullptr;
+}
+
+// Texture Atlas
+
+TextureCoords TextureAtlasCoords(float x, float y, float width, float height)
+{
+	return {
+		glm::vec2(((x * width))        , ((y * width) + width)),
+		glm::vec2(((x * width) + width), ((y * width) + width)),
+		glm::vec2(((x * width) + width), (y * width)),
+		glm::vec2(((x * width))        , (y * width))
+	};
 }

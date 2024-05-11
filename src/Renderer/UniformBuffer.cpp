@@ -1,6 +1,6 @@
-#include "Renderer/UniformBuffer.h"
+#include "oglfv2/Renderer/UniformBuffer.h"
 
-#include "Renderer/Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 UniformBuffer* UniformBuffer::m_BoundUniformBuffer = nullptr;
 

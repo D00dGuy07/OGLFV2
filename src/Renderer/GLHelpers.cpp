@@ -1,6 +1,6 @@
-#include "Renderer/GLHelpers.h"
+#include "oglfv2/Renderer/GLHelpers.h"
 
-#include "Renderer/Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 // Memory Helper
 

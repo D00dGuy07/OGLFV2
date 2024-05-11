@@ -1,5 +1,5 @@
 // This file is automatically built by a script
-#include <Util/GLFWEventWrapper.h>
+#include <oglfv2/Util/GLFWEventWrapper.h>
 
 #include <stdexcept>
 

@@ -1,7 +1,7 @@
-#include "VertexArray.h"
+#include "oglfv2/Renderer/VertexArray.h"
 
-#include "VertexBufferLayout.h"
-#include "Renderer.h"
+#include "oglfv2/Renderer/VertexBufferLayout.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 #include <iostream>
 

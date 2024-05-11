@@ -1,7 +1,8 @@
-#include "Renderer/RenderCommandQueue.h"
-#include <vcruntime_string.h>
+#include "oglfv2/Renderer/RenderCommandQueue.h"
 
 #include "glad/glad.h"
+
+#include <cstring>
 
 #define BUFFER_SIZE_MB 1 
 

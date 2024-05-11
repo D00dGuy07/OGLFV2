@@ -1,6 +1,6 @@
-#include "IndexBuffer.h"
+#include "oglfv2/Renderer/IndexBuffer.h"
 
-#include "Renderer.h"
+#include "oglfv2/Renderer/Renderer.h"
 
 IndexBuffer* IndexBuffer::m_BoundIndexBuffer = nullptr;
 

@@ -1,10 +1,10 @@
-#include "Mesh.h"
+#include "oglfv2/Renderer/Mesh.h"
 
 #include <iterator>
 
-#include "Renderer/VertexArray.h"
-#include "Renderer/VertexBuffer.h"
-#include "Renderer/IndexBuffer.h"
+#include "oglfv2/Renderer/VertexArray.h"
+#include "oglfv2/Renderer/VertexBuffer.h"
+#include "oglfv2/Renderer/IndexBuffer.h"
 
 Mesh::~Mesh()
 {
