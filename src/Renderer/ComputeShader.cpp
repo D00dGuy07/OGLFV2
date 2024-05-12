@@ -6,9 +6,6 @@
 #include <sstream>
 #include <iostream>
 
-glm::ivec3 ComputeShader::MaxWorkGroupCount(0, 0, 0);
-glm::ivec3 ComputeShader::MaxWorkGroupSize(0, 0, 0);
-
 ComputeShader::ComputeShader(const std::string& filepath, bool binary)
 	: m_FilePath(filepath)
 {

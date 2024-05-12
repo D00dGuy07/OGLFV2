@@ -4,11 +4,6 @@
 
 #include <iostream>
 
-ShaderBuffer* ShaderBuffer::m_BoundShaderBuffer = nullptr;
-
-std::vector<ShaderBuffer*> ShaderBuffer::m_BoundIndexedBuffers = std::vector<ShaderBuffer*>();
-uint32_t ShaderBuffer::m_MaxIndexedTargets = 0U;
-
 ShaderBuffer::ShaderBuffer(const void* data, size_t size)
 	: GLBuffer()
 {

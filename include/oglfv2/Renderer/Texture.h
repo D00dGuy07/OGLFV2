@@ -66,11 +66,11 @@ private:
 	uint8_t* m_LocalData = nullptr;
 	TextureSpec m_Spec;
 
-	static std::vector<Texture*> m_BoundTextureUnits;
-	static uint32_t m_MaxTextureUnits;
+	inline static std::vector<Texture*> m_BoundTextureUnits = std::vector<Texture*>();
+	inline static uint32_t m_MaxTextureUnits = 0U;
 
-	static std::vector<Texture*> m_BoundImageUnits;
-	static uint32_t m_MaxImageUnits;
+	inline static std::vector<Texture*> m_BoundImageUnits = std::vector<Texture*>();
+	inline static uint32_t m_MaxImageUnits = 0U;
 
 	static void ReserveBindings();
 	static void FreeBinding(Texture* texture);

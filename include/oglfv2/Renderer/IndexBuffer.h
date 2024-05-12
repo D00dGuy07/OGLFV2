@@ -12,5 +12,5 @@ public:
 
 	inline size_t GetCount() const { return m_Size / sizeof(uint32_t); }
 private:
-	static IndexBuffer* m_BoundIndexBuffer;
+	inline static IndexBuffer* m_BoundIndexBuffer = nullptr;
 };

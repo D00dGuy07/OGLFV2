@@ -13,10 +13,10 @@ public:
 	virtual void Bind() override;
 	void BindIndexed(uint32_t index = 0);
 private:
-	static ShaderBuffer* m_BoundShaderBuffer;
+	inline static ShaderBuffer* m_BoundShaderBuffer = nullptr;
 
-	static std::vector<ShaderBuffer*> m_BoundIndexedBuffers;
-	static uint32_t m_MaxIndexedTargets;
+	inline static std::vector<ShaderBuffer*> m_BoundIndexedBuffers = std::vector<ShaderBuffer*>();
+	inline static uint32_t m_MaxIndexedTargets = 0U;
 
 	static void ReserveBindings();
 	void FreeBinding(ShaderBuffer* shaderBuffer);

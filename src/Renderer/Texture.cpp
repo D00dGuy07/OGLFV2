@@ -8,11 +8,6 @@
 
 #include <iostream>
 
-std::vector<Texture*> Texture::m_BoundTextureUnits = std::vector<Texture*>();
-uint32_t Texture::m_MaxTextureUnits = 0U;
-std::vector<Texture*> Texture::m_BoundImageUnits = std::vector<Texture*>();
-uint32_t Texture::m_MaxImageUnits = 0U;
-
 Texture::Texture(const std::string& path, const TextureSpec& spec)
 	: ImageBuffer(NULL, 0, 0), m_BPP(0), m_Spec(spec)
 {

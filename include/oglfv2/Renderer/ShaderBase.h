@@ -124,7 +124,7 @@ protected:
 	uint32_t m_RendererID = 0;
 	// Having BoundRendererID here assumes that all shaders use same binding points
 	// and methods which is currently true for all shader types that I know of
-	static ShaderBase* m_BoundShader;
+	inline static ShaderBase* m_BoundShader = nullptr;
 
 	// Uniform caching
 	std::unordered_map<std::string, int> m_UniformLocationCache;

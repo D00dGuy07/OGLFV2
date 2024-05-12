@@ -15,10 +15,10 @@ public:
 
 	inline void UpdateContents(const void* data, int32_t offset, size_t size) { GLBuffer::UpdateContents(data, offset, size); }
 private:
-	static UniformBuffer* m_BoundUniformBuffer;
+	inline static UniformBuffer* m_BoundUniformBuffer = nullptr;
 
-	static std::vector<UniformBuffer*> m_BoundIndexedBuffers;
-	static uint32_t m_MaxIndexedTargets;
+	inline static std::vector<UniformBuffer*> m_BoundIndexedBuffers = std::vector<UniformBuffer*>();
+	inline static uint32_t m_MaxIndexedTargets = 0U;
 
 	static void ReserveBindings();
 	void FreeBinding(UniformBuffer* shaderBuffer);

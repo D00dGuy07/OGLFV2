@@ -2,8 +2,6 @@
 
 #include "oglfv2/Renderer/Renderer.h"
 
-IndexBuffer* IndexBuffer::m_BoundIndexBuffer = nullptr;
-
 IndexBuffer::IndexBuffer(const uint32_t* data, uint32_t count)
 	: GLBuffer()
 {

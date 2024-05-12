@@ -9,8 +9,6 @@
 #include <iostream>
 #include <stdexcept>
 
-Framebuffer* Framebuffer::m_BoundFramebuffer = nullptr;
-
 Framebuffer::Framebuffer(const FramebufferSpec& spec)
 	: m_RendererID(0), m_Spec(spec),
 	m_ColorAttachments(), m_OtherAttachments()

@@ -4,8 +4,6 @@
 
 #include "glad/glad.h"
 
-RenderBuffer* RenderBuffer::m_BoundRenderBuffer = nullptr;
-
 RenderBuffer::RenderBuffer(int32_t width, int32_t height, InternalImageFormat format)
 	: ImageBuffer(NULL, width, height), m_Format(format)
 {

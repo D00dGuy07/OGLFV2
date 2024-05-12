@@ -35,7 +35,8 @@ public:
 	// End Auto Gen
 private:
 	// Factory definitions
-	static std::unordered_map<GLFWwindow*, GLFWEventWrapper*> m_Wrappers;
+	inline static std::unordered_map<GLFWwindow*, GLFWEventWrapper*> m_Wrappers = 
+		std::unordered_map<GLFWwindow*, GLFWEventWrapper*>();
 
 	static void DisposeWrapper(GLFWwindow* window);
 

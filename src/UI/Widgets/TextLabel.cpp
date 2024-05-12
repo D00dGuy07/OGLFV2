@@ -6,10 +6,6 @@
 
 using namespace UI;
 
-std::unordered_map<std::string, std::shared_ptr<FontData>> TextLabel::m_FontData = 
-	std::unordered_map<std::string, std::shared_ptr<FontData>>();
-
-
 FontData::FontData(const std::string& fontName)
 	: IsValid(true)
 {

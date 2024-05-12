@@ -65,6 +65,7 @@ namespace UI
 			int32_t boundsWidth,
 			std::shared_ptr<FontData> fontData);
 
-		static std::unordered_map<std::string, std::shared_ptr<FontData>> m_FontData;
+		static inline std::unordered_map<std::string, std::shared_ptr<FontData>> m_FontData = 
+			std::unordered_map<std::string, std::shared_ptr<FontData>>();
 	};
 }

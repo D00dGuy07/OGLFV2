@@ -10,5 +10,5 @@ public:
 
 	virtual void Bind() override;
 private:
-	static VertexBuffer* m_BoundVertexBuffer;
+	inline static VertexBuffer* m_BoundVertexBuffer = nullptr;
 };

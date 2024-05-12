@@ -3,8 +3,6 @@
 
 #include <stdexcept>
 
-std::unordered_map<GLFWwindow*, GLFWEventWrapper*> GLFWEventWrapper::m_Wrappers = std::unordered_map<GLFWwindow*, GLFWEventWrapper*>();
-
 GLFWEventWrapper* GLFWEventWrapper::GetWrapper(GLFWwindow* window)
 {
 	try

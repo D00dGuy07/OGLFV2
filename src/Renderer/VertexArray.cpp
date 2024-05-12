@@ -5,8 +5,6 @@
 
 #include <iostream>
 
-VertexArray* VertexArray::m_BoundVertexArray = nullptr;
-
 VertexArray::VertexArray()
 	: m_RendererID(NULL)
 {

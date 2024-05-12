@@ -18,6 +18,6 @@ private:
 	std::string LoadShaderFile();
 	uint32_t CreateShader(const std::string& shaderSource);
 
-	static glm::ivec3 MaxWorkGroupCount;
-	static glm::ivec3 MaxWorkGroupSize;
+	inline static glm::ivec3 MaxWorkGroupCount = glm::ivec3(0, 0, 0);
+	inline static glm::ivec3 MaxWorkGroupSize = glm::ivec3(0, 0, 0);
 };

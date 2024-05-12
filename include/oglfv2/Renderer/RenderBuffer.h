@@ -17,5 +17,5 @@ public:
 private:
 	InternalImageFormat m_Format;
 
-	static RenderBuffer* m_BoundRenderBuffer;
+	inline static RenderBuffer* m_BoundRenderBuffer = nullptr;
 };

@@ -6,9 +6,6 @@
 
 using namespace UI;
 
-std::unordered_map<void*, AnimationScheduler::BaseAnimatorPointer*> AnimationScheduler::s_Animations =
-	std::unordered_map<void*, AnimationScheduler::BaseAnimatorPointer*>();
-
 constexpr double PI = 3.1415926535897932384626433;
 
 double EasingFunctions::easeLinear(double x)

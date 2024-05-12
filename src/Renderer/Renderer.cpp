@@ -4,9 +4,6 @@
 #include "oglfv2/Renderer/IndexBuffer.h"
 #include "oglfv2/Renderer/Framebuffer.h"
 
-RenderCommandQueue Renderer::m_CommandQueue = RenderCommandQueue();
-GarbageHeap Renderer::m_GarbageHeap = GarbageHeap(1024 * 512);
-
 void Renderer::UseBlending(bool enable, BlendFunction source, BlendFunction destination)
 {
 	Submit([=]() {

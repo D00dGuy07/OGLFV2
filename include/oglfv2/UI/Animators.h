@@ -342,6 +342,7 @@ namespace UI
 			}
 		};
 
-		static std::unordered_map<void*, BaseAnimatorPointer*> s_Animations;
+		inline static std::unordered_map<void*, BaseAnimatorPointer*> s_Animations = 
+			std::unordered_map<void*, AnimationScheduler::BaseAnimatorPointer*>();
 	};
 }

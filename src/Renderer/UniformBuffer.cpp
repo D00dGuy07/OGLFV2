@@ -2,11 +2,6 @@
 
 #include "oglfv2/Renderer/Renderer.h"
 
-UniformBuffer* UniformBuffer::m_BoundUniformBuffer = nullptr;
-
-std::vector<UniformBuffer*> UniformBuffer::m_BoundIndexedBuffers = std::vector<UniformBuffer*>();
-uint32_t UniformBuffer::m_MaxIndexedTargets = 0U;
-
 UniformBuffer::UniformBuffer(const void* data, size_t size)
 	: GLBuffer()
 {

@@ -118,13 +118,14 @@ namespace UI
 		// Widget shader storage and retrieval
 
 		static std::shared_ptr<Shader> GetWidgetShader(const char* shaderPath);
-		static std::unordered_map<const char*, std::shared_ptr<Shader>> s_WidgetShaders;
+		inline static std::unordered_map<const char*, std::shared_ptr<Shader>> s_WidgetShaders =
+			std::unordered_map<const char*, std::shared_ptr<Shader>>();
 
 		// Timed update related values
 
 		CallbackList<double> m_TimedUpdateCallbacks;
 		double m_LastUpdate = -1.0f;
-		static std::optional<std::function<double()>> s_TimeFunction;
+		inline static std::optional<std::function<double()>> s_TimeFunction = std::nullopt;
 
 		// Input
 

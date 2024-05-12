@@ -7,8 +7,6 @@
 #include <iostream>
 #include <fstream>
 
-ShaderBase* ShaderBase::m_BoundShader = nullptr;
-
 ShaderBase::ShaderBase()
 	: m_UniformLocationCache() {}
 

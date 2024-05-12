@@ -11,9 +11,6 @@
 
 using namespace UI;
 
-std::unordered_map<const char*, std::shared_ptr<Shader>> Surface::s_WidgetShaders = std::unordered_map<const char*, std::shared_ptr<Shader>>();
-std::optional<std::function<double()>> Surface::s_TimeFunction = std::nullopt;
-
 Surface::Surface()
 	: m_Resolution(glm::vec2(0, 0)), m_Framebuffer() {}
 

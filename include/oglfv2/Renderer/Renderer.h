@@ -98,6 +98,6 @@ public:
 	}
 
 private:
-	static RenderCommandQueue m_CommandQueue;
-	static GarbageHeap m_GarbageHeap;
+	inline static RenderCommandQueue m_CommandQueue = RenderCommandQueue();
+	inline static GarbageHeap m_GarbageHeap = GarbageHeap(1024 * 512);
 };

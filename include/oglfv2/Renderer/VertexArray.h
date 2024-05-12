@@ -18,5 +18,5 @@ public:
 private:
 	uint32_t m_RendererID;
 
-	static VertexArray* m_BoundVertexArray;
+	inline static VertexArray* m_BoundVertexArray = nullptr;
 };
