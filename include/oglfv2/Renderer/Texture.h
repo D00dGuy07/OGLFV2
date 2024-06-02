@@ -46,6 +46,8 @@ struct TextureSpec
 	glm::vec4 BorderColor = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
 };
 
+class PixelBuffer;
+
 class Texture : public ImageBuffer
 {
 public:
@@ -60,6 +62,8 @@ public:
 	void BindImage(uint32_t slot = 0);
 
 	virtual void Reallocate(int32_t width, int32_t height) override;
+
+	void UnpackPBO(PixelBuffer& pixelBuffer);
 	
 private:
 	int32_t m_BPP;

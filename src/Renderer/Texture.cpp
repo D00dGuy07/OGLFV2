@@ -1,6 +1,7 @@
 #include "oglfv2/Renderer/Texture.h"
 
 #include "oglfv2/Renderer/Renderer.h"
+#include "oglfv2/Renderer/PixelBuffer.h"
 
 #include "glad/glad.h"
 #define STB_IMAGE_IMPLEMENTATION
@@ -135,6 +136,21 @@ void Texture::Reallocate(int32_t width, int32_t height)
 	Bind();
 	Renderer::Submit([=]() {
 		glTexImage2D(GL_TEXTURE_2D, 0, sizedId, m_Width, m_Height, 0, baseId, GL_UNSIGNED_BYTE, NULL);
+	});
+}
+
+void Texture::UnpackPBO(PixelBuffer& pixelBuffer)
+{
+	PixelBuffer::Spec pboSpec = pixelBuffer.GetSpec();
+	if (pboSpec.Type == PixelBuffer::Type::GPUtoCPU)
+		throw std::exception("Can't unpack from a GPU to CPU pixel buffer");
+
+	pixelBuffer.Bind();
+	Bind();
+
+	Renderer::Submit([=]() {
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, std::min(m_Width, pboSpec.Width), std::min(m_Height, pboSpec.Height),
+			static_cast<uint32_t>(pboSpec.Order), static_cast<uint32_t>(pboSpec.Format), nullptr);
 	});
 }
 

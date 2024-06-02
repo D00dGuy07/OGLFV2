@@ -11,6 +11,8 @@
 
 #include "oglfv2/Util/GarbageHeap.h"
 
+class PixelBuffer;
+
 class Renderer
 {
 public:
@@ -90,6 +92,8 @@ public:
 
 	static void Clear();
 	static void DrawFrame();
+
+	static void PackPBO(PixelBuffer& pixelBuffer);
 
 	template<typename T, typename... Args>
 	static T* CreateGarbage(Args&&... args)

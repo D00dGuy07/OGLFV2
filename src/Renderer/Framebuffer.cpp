@@ -3,6 +3,7 @@
 #include "oglfv2/Renderer/Renderer.h"
 #include "oglfv2/Renderer/Texture.h"
 #include "oglfv2/Renderer/RenderBuffer.h"
+#include "oglfv2/Renderer/PixelBuffer.h"
 
 #include "glad/glad.h"
 
@@ -219,4 +220,26 @@ void Framebuffer::Resize(int32_t width, int32_t height)
 		attachment.Buffer->Reallocate(width, height);
 	m_Spec.Width = width;
 	m_Spec.Height = height;
+}
+
+void Framebuffer::PackPBO(PixelBuffer& pixelBuffer, uint32_t index)
+{
+	PixelBuffer::Spec pboSpec = pixelBuffer.GetSpec();
+	if (pboSpec.Type == PixelBuffer::Type::CPUtoGPU)
+		throw std::exception("Can't pack to a CPU to GPU pixel buffer");
+	if (index >= m_ColorAttachments.size())
+		throw std::exception("Can't access a color attachment that doesn't exist");
+
+	pixelBuffer.Bind();
+
+	Renderer::Submit([=]() {
+		glBindFramebuffer(GL_READ_FRAMEBUFFER, m_RendererID);
+		glReadBuffer(index);
+
+		FBOAttachment attachment = m_ColorAttachments[index];
+		glReadPixels(0, 0, std::min(attachment.Buffer->GetWidth(), pboSpec.Width), std::min(attachment.Buffer->GetHeight(), pboSpec.Height),
+			static_cast<uint32_t>(pboSpec.Order), static_cast<uint32_t>(pboSpec.Format), nullptr);
+
+		glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+	});
 }

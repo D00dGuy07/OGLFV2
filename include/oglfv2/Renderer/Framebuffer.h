@@ -36,6 +36,8 @@ struct FBOAttachment
 	FBOAttachmentType AttachmentType;
 };
 
+class PixelBuffer;
+
 class Framebuffer
 {
 public:
@@ -47,11 +49,13 @@ public:
 
 	void Resize(int32_t width, int32_t height);
 
+	void PackPBO(PixelBuffer& pixelBuffer, uint32_t index);
+
 	inline int32_t GetWidth() const { return m_Spec.Width; }
 	inline int32_t GetHeight() const { return m_Spec.Height; }
 
-	inline FBOAttachment GetColorAttachment(int32_t index) const { return m_ColorAttachments[index]; }
-	inline FBOAttachment GetOtherAttachment(int32_t index) const { return m_OtherAttachments[index]; }
+	inline FBOAttachment GetColorAttachment(uint32_t index) const { return m_ColorAttachments[index]; }
+	inline FBOAttachment GetOtherAttachment(uint32_t index) const { return m_OtherAttachments[index]; }
 
 private:
 	uint32_t m_RendererID;

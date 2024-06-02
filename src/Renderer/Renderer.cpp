@@ -3,6 +3,7 @@
 #include "oglfv2/Renderer/VertexArray.h"
 #include "oglfv2/Renderer/IndexBuffer.h"
 #include "oglfv2/Renderer/Framebuffer.h"
+#include "oglfv2/Renderer/PixelBuffer.h"
 
 void Renderer::UseBlending(bool enable, BlendFunction source, BlendFunction destination)
 {
@@ -122,4 +123,19 @@ void Renderer::DrawFrame()
 {
 	m_CommandQueue.Execute();
 	m_GarbageHeap.CleanupGarbage();
+}
+
+void Renderer::PackPBO(PixelBuffer& pixelBuffer)
+{
+	PixelBuffer::Spec pboSpec = pixelBuffer.GetSpec();
+	if (pboSpec.Type == PixelBuffer::Type::CPUtoGPU)
+		throw std::exception("Can't pack to a CPU to GPU pixel buffer");
+
+	pixelBuffer.Bind();
+
+	Submit([=]() {
+		glReadBuffer(GL_FRONT);
+
+		glReadPixels(0, 0, pboSpec.Width, pboSpec.Height, static_cast<uint32_t>(pboSpec.Order), static_cast<uint32_t>(pboSpec.Format), nullptr);
+	});
 }
