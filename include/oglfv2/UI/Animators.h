@@ -154,7 +154,7 @@ namespace UI
 		T m_Start;
 		T* m_Value;
 
-		std::shared_ptr<EventConnection<double>> m_Connection;
+		std::shared_ptr<arwh::EventConnection<double>> m_Connection;
 
 		double Ease(double x)
 		{
@@ -272,7 +272,7 @@ namespace UI
 		Surface* m_Surface;
 
 		std::function<void(double)> m_TimedCallback;
-		std::shared_ptr<EventConnection<double>> m_Connection;
+		std::shared_ptr<arwh::EventConnection<double>> m_Connection;
 	};
 
 	class AnimationScheduler

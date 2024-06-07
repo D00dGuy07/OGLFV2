@@ -2,7 +2,7 @@
 
 #include "oglfv2/UI/Widget.h"
 
-#include "oglfv2/Util/Events/CallbackList.h"
+#include "Arrowhead/Events.h"
 
 namespace UI
 {
@@ -22,13 +22,13 @@ namespace UI
 		using Widget::Alpha;
 		using Widget::ZIndex;
 
-		std::shared_ptr<EventConnection<MouseMoveArgs>> ConnectMouseMove(std::function<void(MouseMoveArgs)> callback)
+		std::shared_ptr<arwh::EventConnection<MouseMoveArgs>> ConnectMouseMove(std::function<void(MouseMoveArgs)> callback)
 		{ return m_MoveCallbacks.Connect(callback); }
-		std::shared_ptr<EventConnection<MouseEnterArgs>> ConnectMouseEnter(std::function<void(MouseEnterArgs)> callback)
+		std::shared_ptr<arwh::EventConnection<MouseEnterArgs>> ConnectMouseEnter(std::function<void(MouseEnterArgs)> callback)
 		{ return m_EnterCallbacks.Connect(callback); }
-		std::shared_ptr<EventConnection<MouseExitArgs>> ConnectMouseExit(std::function<void(MouseExitArgs)> callback)
+		std::shared_ptr<arwh::EventConnection<MouseExitArgs>> ConnectMouseExit(std::function<void(MouseExitArgs)> callback)
 		{ return m_ExitCallbacks.Connect(callback); }
-		std::shared_ptr<EventConnection<MouseButtonArgs>> ConnectMouseButton(std::function<void(MouseButtonArgs)> callback)
+		std::shared_ptr<arwh::EventConnection<MouseButtonArgs>> ConnectMouseButton(std::function<void(MouseButtonArgs)> callback)
 		{ return m_ButtonCallbacks.Connect(callback); }
 
 		bool IsHovered() const { return m_IsHovered; }
@@ -67,10 +67,10 @@ namespace UI
 		bool m_IsClicked = false;
 
 	private: // This line can be deleted if button implementees want to use the callback lists
-		CallbackList<MouseMoveArgs> m_MoveCallbacks;
-		CallbackList<MouseEnterArgs> m_EnterCallbacks;
-		CallbackList<MouseExitArgs> m_ExitCallbacks;
-		CallbackList<MouseButtonArgs> m_ButtonCallbacks;
+		arwh::CallbackList<MouseMoveArgs> m_MoveCallbacks;
+		arwh::CallbackList<MouseEnterArgs> m_EnterCallbacks;
+		arwh::CallbackList<MouseExitArgs> m_ExitCallbacks;
+		arwh::CallbackList<MouseButtonArgs> m_ButtonCallbacks;
 	};
 #pragma warning( pop )
 }

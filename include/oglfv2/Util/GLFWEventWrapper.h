@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <functional>
 
-#include "oglfv2/Util/Events/CallbackList.h"
+#include "Arrowhead/Events.h"
 
 #include "GLFW/glfw3.h"
 
@@ -15,28 +15,28 @@ public:
 	static GLFWEventWrapper* GetWrapper(GLFWwindow* window);
 
 	// Auto Gen
-	std::shared_ptr<EventConnection<GLFWwindow*, int, int, int>> ConnectMouseButton(std::function<void(GLFWwindow*, int, int, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, double, double>> ConnectMouseCursorPos(std::function<void(GLFWwindow*, double, double)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int>> ConnectMouseCursorEnter(std::function<void(GLFWwindow*, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, double, double>> ConnectMouseScroll(std::function<void(GLFWwindow*, double, double)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int, int, int, int>> ConnectKey(std::function<void(GLFWwindow*, int, int, int, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, unsigned int>> ConnectChar(std::function<void(GLFWwindow*, unsigned int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, unsigned int, int>> ConnectCharMods(std::function<void(GLFWwindow*, unsigned int, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int, const char*[]>> ConnectPathDrop(std::function<void(GLFWwindow*, int, const char*[])> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int, int>> ConnectWindowPos(std::function<void(GLFWwindow*, int, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int, int>> ConnectWindowSize(std::function<void(GLFWwindow*, int, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*>> ConnectWindowRefresh(std::function<void(GLFWwindow*)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int>> ConnectWindowFocus(std::function<void(GLFWwindow*, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int>> ConnectWindowIconify(std::function<void(GLFWwindow*, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int>> ConnectWindowMaximize(std::function<void(GLFWwindow*, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, int, int>> ConnectFramebufferSize(std::function<void(GLFWwindow*, int, int)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*, float, float>> ConnectWindowContentScale(std::function<void(GLFWwindow*, float, float)> callback);
-	std::shared_ptr<EventConnection<GLFWwindow*>> ConnectWindowClose(std::function<std::remove_pointer<GLFWwindowclosefun>::type> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int, int>> ConnectMouseButton(std::function<void(GLFWwindow*, int, int, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, double, double>> ConnectMouseCursorPos(std::function<void(GLFWwindow*, double, double)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> ConnectMouseCursorEnter(std::function<void(GLFWwindow*, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, double, double>> ConnectMouseScroll(std::function<void(GLFWwindow*, double, double)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int, int, int>> ConnectKey(std::function<void(GLFWwindow*, int, int, int, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, unsigned int>> ConnectChar(std::function<void(GLFWwindow*, unsigned int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, unsigned int, int>> ConnectCharMods(std::function<void(GLFWwindow*, unsigned int, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, const char*[]>> ConnectPathDrop(std::function<void(GLFWwindow*, int, const char*[])> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int>> ConnectWindowPos(std::function<void(GLFWwindow*, int, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int>> ConnectWindowSize(std::function<void(GLFWwindow*, int, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*>> ConnectWindowRefresh(std::function<void(GLFWwindow*)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> ConnectWindowFocus(std::function<void(GLFWwindow*, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> ConnectWindowIconify(std::function<void(GLFWwindow*, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> ConnectWindowMaximize(std::function<void(GLFWwindow*, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int>> ConnectFramebufferSize(std::function<void(GLFWwindow*, int, int)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*, float, float>> ConnectWindowContentScale(std::function<void(GLFWwindow*, float, float)> callback);
+	std::shared_ptr<arwh::EventConnection<GLFWwindow*>> ConnectWindowClose(std::function<std::remove_pointer<GLFWwindowclosefun>::type> callback);
 	// End Auto Gen
 private:
 	// Factory definitions
-	inline static std::unordered_map<GLFWwindow*, GLFWEventWrapper*> m_Wrappers = 
-		std::unordered_map<GLFWwindow*, GLFWEventWrapper*>();
+	inline static std::unordered_map<GLFWwindow*, GLFWEventWrapper*> m_Wrappers =
+        std::unordered_map<GLFWwindow*, GLFWEventWrapper*>();
 
 	static void DisposeWrapper(GLFWwindow* window);
 
@@ -64,23 +64,23 @@ private:
 	GLFWwindow* m_Window;
 
 	// Auto Gen
-	CallbackList<GLFWwindow*, int, int, int> m_MouseButtonCallbacks;
-	CallbackList<GLFWwindow*, double, double> m_MouseCursorPosCallbacks;
-	CallbackList<GLFWwindow*, int> m_MouseCursorEnterCallbacks;
-	CallbackList<GLFWwindow*, double, double> m_MouseScrollCallbacks;
-	CallbackList<GLFWwindow*, int, int, int, int> m_KeyCallbacks;
-	CallbackList<GLFWwindow*, unsigned int> m_CharCallbacks;
-	CallbackList<GLFWwindow*, unsigned int, int> m_CharModsCallbacks;
-	CallbackList<GLFWwindow*, int, const char*[]> m_PathDropCallbacks;
-	CallbackList<GLFWwindow*, int, int> m_WindowPosCallbacks;
-	CallbackList<GLFWwindow*, int, int> m_WindowSizeCallbacks;
-	CallbackList<GLFWwindow*> m_WindowRefreshCallbacks;
-	CallbackList<GLFWwindow*, int> m_WindowFocusCallbacks;
-	CallbackList<GLFWwindow*, int> m_WindowIconifyCallbacks;
-	CallbackList<GLFWwindow*, int> m_WindowMaximizeCallbacks;
-	CallbackList<GLFWwindow*, int, int> m_FramebufferSizeCallbacks;
-	CallbackList<GLFWwindow*, float, float> m_WindowContentScaleCallbacks;
-	CallbackList<GLFWwindow*> m_WindowCloseCallbacks;
+	arwh::CallbackList<GLFWwindow*, int, int, int> m_MouseButtonCallbacks;
+	arwh::CallbackList<GLFWwindow*, double, double> m_MouseCursorPosCallbacks;
+	arwh::CallbackList<GLFWwindow*, int> m_MouseCursorEnterCallbacks;
+	arwh::CallbackList<GLFWwindow*, double, double> m_MouseScrollCallbacks;
+	arwh::CallbackList<GLFWwindow*, int, int, int, int> m_KeyCallbacks;
+	arwh::CallbackList<GLFWwindow*, unsigned int> m_CharCallbacks;
+	arwh::CallbackList<GLFWwindow*, unsigned int, int> m_CharModsCallbacks;
+	arwh::CallbackList<GLFWwindow*, int, const char*[]> m_PathDropCallbacks;
+	arwh::CallbackList<GLFWwindow*, int, int> m_WindowPosCallbacks;
+	arwh::CallbackList<GLFWwindow*, int, int> m_WindowSizeCallbacks;
+	arwh::CallbackList<GLFWwindow*> m_WindowRefreshCallbacks;
+	arwh::CallbackList<GLFWwindow*, int> m_WindowFocusCallbacks;
+	arwh::CallbackList<GLFWwindow*, int> m_WindowIconifyCallbacks;
+	arwh::CallbackList<GLFWwindow*, int> m_WindowMaximizeCallbacks;
+	arwh::CallbackList<GLFWwindow*, int, int> m_FramebufferSizeCallbacks;
+	arwh::CallbackList<GLFWwindow*, float, float> m_WindowContentScaleCallbacks;
+	arwh::CallbackList<GLFWwindow*> m_WindowCloseCallbacks;
 	// End Auto Gen
 
 	GLFWEventWrapper(GLFWwindow* window);

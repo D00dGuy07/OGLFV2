@@ -1,6 +1,6 @@
 #include "oglfv2/UI/Surface.h"
 
-#include "oglfv2/Util/Sort.h"
+#include "Arrowhead/Sort.h"
 
 #include "oglfv2/Renderer/Renderer.h"
 #include "oglfv2/Renderer/Framebuffer.h"
@@ -84,7 +84,7 @@ void Surface::RenderRecursive(std::shared_ptr<Widget> widget, glm::vec4 bounds)
 		return;
 	
 	std::vector<std::shared_ptr<Widget>> sortedChildren = widget->GetChildren();
-	Sorting::Sort<Sorting::Algorithm::Introsort>(sortedChildren, 0, static_cast<int32_t>(sortedChildren.size() - 1), 
+	arwh::Sort<arwh::SortingAlgorithm::Introsort>(sortedChildren.data(), 0, static_cast<int32_t>(sortedChildren.size() - 1),
 	[](std::shared_ptr<Widget> a, std::shared_ptr<Widget> b) {
 		return a->ZIndex.Value() < b->ZIndex.Value();
 	});
@@ -102,7 +102,7 @@ void Surface::Render()
 
 	// Sort widgets in render order
 	std::vector<std::shared_ptr<Widget>> sortedChildren = m_Children;
-	Sorting::Sort<Sorting::Algorithm::Introsort>(sortedChildren, 0, static_cast<int32_t>(sortedChildren.size() - 1), 
+	arwh::Sort<arwh::SortingAlgorithm::Introsort>(sortedChildren.data(), 0, static_cast<int32_t>(sortedChildren.size() - 1),
 	[](std::shared_ptr<Widget> a, std::shared_ptr<Widget> b) {
 		return a->ZIndex.Value() < b->ZIndex.Value();
 	});

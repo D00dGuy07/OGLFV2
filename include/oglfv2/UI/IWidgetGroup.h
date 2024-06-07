@@ -3,7 +3,7 @@
 #include <memory>
 #include <functional>
 
-#include "oglfv2/Util/IValueObserver.h"
+#include "Arrowhead/IValueObserver.h"
 
 namespace UI
 {
@@ -17,14 +17,14 @@ namespace UI
 
 		// This isn't really WidgetGroup specific functionality
 		template<typename T>
-		class GroupProperty : public IValueObserver<T>
+		class GroupProperty : public arwh::IValueObserver<T>
 		{
 		public:
 			template<typename... Args>
 			GroupProperty(std::function<void()> callback, Args&&... args)
-				: IValueObserver<T>(T(std::forward<Args>(args)...)), m_Callback(callback) {}
+				: arwh::IValueObserver<T>(T(std::forward<Args>(args)...)), m_Callback(callback) {}
 
-			using IValueObserver<T>::operator=;
+			using arwh::IValueObserver<T>::operator=;
 
 		private:
 			std::function<void()> m_Callback;

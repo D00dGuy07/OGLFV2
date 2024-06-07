@@ -12,7 +12,7 @@
 #include "oglfv2/Renderer/Framebuffer.h"
 #include "oglfv2/Renderer/Texture.h"
 
-#include "oglfv2/Util/Events/CallbackList.h"
+#include "Arrowhead/Events.h"
 
 class Shader;
 struct GLFWwindow;
@@ -80,26 +80,26 @@ namespace UI
 
 		// Input callback connection functions
 
-		inline std::shared_ptr<EventConnection<MouseMoveArgs>> ConnectMouseMove(std::function<void(MouseMoveArgs)> callback)
+		inline std::shared_ptr<arwh::EventConnection<MouseMoveArgs>> ConnectMouseMove(std::function<void(MouseMoveArgs)> callback)
 		{ return m_MouseMoveCallbacks.Connect(callback); }
 
-		inline std::shared_ptr<EventConnection<MouseButtonArgs>> ConnectMouseButton(std::function<void(MouseButtonArgs)> callback)
+		inline std::shared_ptr<arwh::EventConnection<MouseButtonArgs>> ConnectMouseButton(std::function<void(MouseButtonArgs)> callback)
 		{ return m_MouseButtonCallbacks.Connect(callback); }
 
-		inline std::shared_ptr<EventConnection<MouseScrollArgs>> ConnectMouseScroll(std::function<void(MouseScrollArgs)> callback)
+		inline std::shared_ptr<arwh::EventConnection<MouseScrollArgs>> ConnectMouseScroll(std::function<void(MouseScrollArgs)> callback)
 		{ return m_MouseScrollCallbacks.Connect(callback); }
 
-		inline std::shared_ptr<EventConnection<KeyUpdateArgs>> ConnectKeyInput(std::function<void(KeyUpdateArgs)> callback)
+		inline std::shared_ptr<arwh::EventConnection<KeyUpdateArgs>> ConnectKeyInput(std::function<void(KeyUpdateArgs)> callback)
 		{ return m_KeyInputCallbacks.Connect(callback); }
 
-		inline std::shared_ptr<EventConnection<CharInputArgs>> ConnectCharInput(std::function<void(CharInputArgs)> callback)
+		inline std::shared_ptr<arwh::EventConnection<CharInputArgs>> ConnectCharInput(std::function<void(CharInputArgs)> callback)
 		{ return m_CharInputCallbacks.Connect(callback); }
 
 		// Timed update interface
 		inline static void SetTimeFunction(std::function<double()> func) { s_TimeFunction = func; }
 		inline double GetTime() { s_TimeFunction.has_value() ? s_TimeFunction->operator()() : 0.0; }
 
-		inline std::shared_ptr<EventConnection<double>> ConnectTimedUpdate(std::function<void(double)> callback)
+		inline std::shared_ptr<arwh::EventConnection<double>> ConnectTimedUpdate(std::function<void(double)> callback)
 		{ return m_TimedUpdateCallbacks.Connect(callback); }
 
 	private:
@@ -123,7 +123,7 @@ namespace UI
 
 		// Timed update related values
 
-		CallbackList<double> m_TimedUpdateCallbacks;
+		arwh::CallbackList<double> m_TimedUpdateCallbacks;
 		double m_LastUpdate = -1.0f;
 		inline static std::optional<std::function<double()>> s_TimeFunction = std::nullopt;
 
@@ -134,10 +134,10 @@ namespace UI
 		glm::vec2 m_MousePos = { 0.0f, 0.0f };
 		std::array<bool, 8> m_MouseButtonsPressed = { false, false, false, false, false, false, false, false };
 
-		CallbackList<MouseMoveArgs> m_MouseMoveCallbacks;
-		CallbackList<MouseButtonArgs> m_MouseButtonCallbacks;
-		CallbackList<MouseScrollArgs> m_MouseScrollCallbacks;
-		CallbackList<KeyUpdateArgs> m_KeyInputCallbacks;
-		CallbackList<CharInputArgs> m_CharInputCallbacks;
+		arwh::CallbackList<MouseMoveArgs> m_MouseMoveCallbacks;
+		arwh::CallbackList<MouseButtonArgs> m_MouseButtonCallbacks;
+		arwh::CallbackList<MouseScrollArgs> m_MouseScrollCallbacks;
+		arwh::CallbackList<KeyUpdateArgs> m_KeyInputCallbacks;
+		arwh::CallbackList<CharInputArgs> m_CharInputCallbacks;
 	};
 }

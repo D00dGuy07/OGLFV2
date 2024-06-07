@@ -22,6 +22,7 @@ project "oglfv2"
     {
         "src",
         "include",
+        path.join(PACKAGE_DIRS["arrowhead"], "include"),
         path.join(PACKAGE_DIRS["glad"], "include"),
         path.join(PACKAGE_DIRS["glfw"], "include"),
         PACKAGE_DIRS["glm"],

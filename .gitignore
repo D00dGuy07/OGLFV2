@@ -17,3 +17,8 @@
 **/Makefile
 **/.cache/
 **/compile_commands.json
+
+# Scripts
+**/__pycache__
+scripts/GLFWEventWrapper/GLFWEventWrapper.h
+scripts/GLFWEventWrapper/GLFWEventWrapper.cpp

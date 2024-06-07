@@ -39,6 +39,6 @@ namespace UI
 	private:
 
 		bool m_IsEventConnected;
-		std::shared_ptr<EventConnection<MouseButtonArgs>> m_EventConnection;
+		std::shared_ptr<arwh::EventConnection<MouseButtonArgs>> m_EventConnection;
 	};
 }

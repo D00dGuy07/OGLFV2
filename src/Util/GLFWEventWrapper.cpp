@@ -71,7 +71,7 @@ void GLFWEventWrapper::DisposeWrapper(GLFWwindow* window)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int, int, int>> GLFWEventWrapper::ConnectMouseButton(std::function<std::remove_pointer<GLFWmousebuttonfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int, int>> GLFWEventWrapper::ConnectMouseButton(std::function<std::remove_pointer<GLFWmousebuttonfun>::type> callback)
 {
 	return m_MouseButtonCallbacks.Connect(callback);
 }
@@ -82,7 +82,7 @@ void GLFWEventWrapper::MouseButtonCallback(GLFWwindow* window, int button, int a
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, double, double>> GLFWEventWrapper::ConnectMouseCursorPos(std::function<std::remove_pointer<GLFWcursorposfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, double, double>> GLFWEventWrapper::ConnectMouseCursorPos(std::function<std::remove_pointer<GLFWcursorposfun>::type> callback)
 {
 	return m_MouseCursorPosCallbacks.Connect(callback);
 }
@@ -93,7 +93,7 @@ void GLFWEventWrapper::MouseCursorPosCallback(GLFWwindow* window, double xpos, d
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectMouseCursorEnter(std::function<std::remove_pointer<GLFWcursorenterfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectMouseCursorEnter(std::function<std::remove_pointer<GLFWcursorenterfun>::type> callback)
 {
 	return m_MouseCursorEnterCallbacks.Connect(callback);
 }
@@ -104,7 +104,7 @@ void GLFWEventWrapper::MouseCursorEnterCallback(GLFWwindow* window, int entered)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, double, double>> GLFWEventWrapper::ConnectMouseScroll(std::function<std::remove_pointer<GLFWscrollfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, double, double>> GLFWEventWrapper::ConnectMouseScroll(std::function<std::remove_pointer<GLFWscrollfun>::type> callback)
 {
 	return m_MouseScrollCallbacks.Connect(callback);
 }
@@ -115,7 +115,7 @@ void GLFWEventWrapper::MouseScrollCallback(GLFWwindow* window, double xoffset, d
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int, int, int, int>> GLFWEventWrapper::ConnectKey(std::function<std::remove_pointer<GLFWkeyfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int, int, int>> GLFWEventWrapper::ConnectKey(std::function<std::remove_pointer<GLFWkeyfun>::type> callback)
 {
 	return m_KeyCallbacks.Connect(callback);
 }
@@ -126,7 +126,7 @@ void GLFWEventWrapper::KeyCallback(GLFWwindow* window, int key, int scancode, in
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, unsigned int>> GLFWEventWrapper::ConnectChar(std::function<std::remove_pointer<GLFWcharfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, unsigned int>> GLFWEventWrapper::ConnectChar(std::function<std::remove_pointer<GLFWcharfun>::type> callback)
 {
 	return m_CharCallbacks.Connect(callback);
 }
@@ -137,7 +137,7 @@ void GLFWEventWrapper::CharCallback(GLFWwindow* window, unsigned int codepoint)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, unsigned int, int>> GLFWEventWrapper::ConnectCharMods(std::function<std::remove_pointer<GLFWcharmodsfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, unsigned int, int>> GLFWEventWrapper::ConnectCharMods(std::function<std::remove_pointer<GLFWcharmodsfun>::type> callback)
 {
 	return m_CharModsCallbacks.Connect(callback);
 }
@@ -148,7 +148,7 @@ void GLFWEventWrapper::CharModsCallback(GLFWwindow* window, unsigned int codepoi
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int, const char*[]>> GLFWEventWrapper::ConnectPathDrop(std::function<std::remove_pointer<GLFWdropfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, const char*[]>> GLFWEventWrapper::ConnectPathDrop(std::function<std::remove_pointer<GLFWdropfun>::type> callback)
 {
 	return m_PathDropCallbacks.Connect(callback);
 }
@@ -159,7 +159,7 @@ void GLFWEventWrapper::PathDropCallback(GLFWwindow* window, int path_count, cons
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int, int>> GLFWEventWrapper::ConnectWindowPos(std::function<std::remove_pointer<GLFWwindowposfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int>> GLFWEventWrapper::ConnectWindowPos(std::function<std::remove_pointer<GLFWwindowposfun>::type> callback)
 {
 	return m_WindowPosCallbacks.Connect(callback);
 }
@@ -170,7 +170,7 @@ void GLFWEventWrapper::WindowPosCallback(GLFWwindow* window, int xpos, int ypos)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int, int>> GLFWEventWrapper::ConnectWindowSize(std::function<std::remove_pointer<GLFWwindowsizefun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int>> GLFWEventWrapper::ConnectWindowSize(std::function<std::remove_pointer<GLFWwindowsizefun>::type> callback)
 {
 	return m_WindowSizeCallbacks.Connect(callback);
 }
@@ -181,7 +181,7 @@ void GLFWEventWrapper::WindowSizeCallback(GLFWwindow* window, int width, int hei
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*>> GLFWEventWrapper::ConnectWindowRefresh(std::function<std::remove_pointer<GLFWwindowrefreshfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*>> GLFWEventWrapper::ConnectWindowRefresh(std::function<std::remove_pointer<GLFWwindowrefreshfun>::type> callback)
 {
 	return m_WindowRefreshCallbacks.Connect(callback);
 }
@@ -192,7 +192,7 @@ void GLFWEventWrapper::WindowRefreshCallback(GLFWwindow* window)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectWindowFocus(std::function<std::remove_pointer<GLFWwindowfocusfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectWindowFocus(std::function<std::remove_pointer<GLFWwindowfocusfun>::type> callback)
 {
 	return m_WindowFocusCallbacks.Connect(callback);
 }
@@ -203,7 +203,7 @@ void GLFWEventWrapper::WindowFocusCallback(GLFWwindow* window, int focused)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectWindowIconify(std::function<std::remove_pointer<GLFWwindowiconifyfun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectWindowIconify(std::function<std::remove_pointer<GLFWwindowiconifyfun>::type> callback)
 {
 	return m_WindowIconifyCallbacks.Connect(callback);
 }
@@ -214,7 +214,7 @@ void GLFWEventWrapper::WindowIconifyCallback(GLFWwindow* window, int iconified)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectWindowMaximize(std::function<std::remove_pointer<GLFWwindowmaximizefun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int>> GLFWEventWrapper::ConnectWindowMaximize(std::function<std::remove_pointer<GLFWwindowmaximizefun>::type> callback)
 {
 	return m_WindowMaximizeCallbacks.Connect(callback);
 }
@@ -225,7 +225,7 @@ void GLFWEventWrapper::WindowMaximizeCallback(GLFWwindow* window, int maximized)
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, int, int>> GLFWEventWrapper::ConnectFramebufferSize(std::function<std::remove_pointer<GLFWframebuffersizefun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, int, int>> GLFWEventWrapper::ConnectFramebufferSize(std::function<std::remove_pointer<GLFWframebuffersizefun>::type> callback)
 {
 	return m_FramebufferSizeCallbacks.Connect(callback);
 }
@@ -236,7 +236,7 @@ void GLFWEventWrapper::FramebufferSizeCallback(GLFWwindow* window, int width, in
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*, float, float>> GLFWEventWrapper::ConnectWindowContentScale(std::function<std::remove_pointer<GLFWwindowcontentscalefun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*, float, float>> GLFWEventWrapper::ConnectWindowContentScale(std::function<std::remove_pointer<GLFWwindowcontentscalefun>::type> callback)
 {
 	return m_WindowContentScaleCallbacks.Connect(callback);
 }
@@ -247,7 +247,7 @@ void GLFWEventWrapper::WindowContentScaleCallback(GLFWwindow* window, float xsca
 }
 
 
-std::shared_ptr<EventConnection<GLFWwindow*>> GLFWEventWrapper::ConnectWindowClose(std::function<std::remove_pointer<GLFWwindowclosefun>::type> callback)
+std::shared_ptr<arwh::EventConnection<GLFWwindow*>> GLFWEventWrapper::ConnectWindowClose(std::function<std::remove_pointer<GLFWwindowclosefun>::type> callback)
 {
 	return m_WindowCloseCallbacks.Connect(callback);
 }

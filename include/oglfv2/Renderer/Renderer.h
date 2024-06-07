@@ -9,7 +9,7 @@
 #include "oglfv2/Renderer/Mesh.h"
 #include "oglfv2/Renderer/Shader.h"
 
-#include "oglfv2/Util/GarbageHeap.h"
+#include "Arrowhead/GarbageHeap.h"
 
 class PixelBuffer;
 
@@ -103,5 +103,5 @@ public:
 
 private:
 	inline static RenderCommandQueue m_CommandQueue = RenderCommandQueue();
-	inline static GarbageHeap m_GarbageHeap = GarbageHeap(1024 * 512);
+	inline static arwh::GarbageHeap m_GarbageHeap = arwh::GarbageHeap(1024 * 512);
 };

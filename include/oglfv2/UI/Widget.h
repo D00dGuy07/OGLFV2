@@ -24,14 +24,14 @@ namespace UI
 	};
 
 	template<typename T>
-	class WidgetProperty : public IValueObserver<T>
+	class WidgetProperty : public arwh::IValueObserver<T>
 	{
 	public:
 		template<typename... Args>
 		WidgetProperty(Surface* root, Args&&... args)
-			: IValueObserver<T>(T(std::forward<Args>(args)...)), m_WidgetRoot(root) {}
+			: arwh::IValueObserver<T>(T(std::forward<Args>(args)...)), m_WidgetRoot(root) {}
 
-		using IValueObserver<T>::operator=;
+		using arwh::IValueObserver<T>::operator=;
 
 	private:
 		Surface* m_WidgetRoot;
